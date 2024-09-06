@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './**/*.liquid',  // for Shopify liquid files
-    './src/**/*.{html,js}',  // for HTML and JS files
+    './src/**/*.html',
+    './src/**/*.liquid',
+    './src/**/*.js',
+    './src/**/*.vue',
   ],
   theme: {
     extend: {},
