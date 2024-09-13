@@ -1,0 +1,23 @@
+// {
+//     "name": "Template 404",   // Give the name of template...
+//     "layout": "custom_theme", // write down the layout in which you wanna show this template
+//     "wrapper": "div#404_template.custom-class[custom-attribute=hello]", // You can use sections, Custom Html tag ect.. add an id ... add a class to this div tag....if you wanna use custom attribute ADD brackets and Write down "Custom-attribute "in and write down attribute in it
+//     "sections": {  // for adding section type "section"
+//         "template-404": {  // give the ID "Tempalte section 404" for giving section ID you need to apply another attribute "type"...
+//             "type": "example-404"   // in type write down the section name form sections folder
+//         }
+//     },
+//             "order": ["template-404"] // for giving order you need to pass the section ID inside the section folder...
+
+// }
+
+
+{
+    "name": "Tempalte 404",
+    "sections": {
+         "template": {
+            "type": "template-404"
+         }
+    },
+    "order": ["template"]
+}

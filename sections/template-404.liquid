@@ -1,0 +1,48 @@
+  {% comment %} Use this section setting when you have to give title from theme customizer       <h1>{{ section.settings.title }}</h1>  {% endcomment %} 
+  {% comment %} Use this when we have to fetch the title from en.default.json  {{ 'general.404.title' | t }}{% endcomment %}  
+  {% comment %} Use this section setting when you have to give subtext from theme customizer  <p> {{ section.settings.subtext }}</p>{% endcomment %} 
+  {% comment %} Use this when we have to fetch the title from en.default.json  {{ 'general.404.subtext_html' | t }}{% endcomment %}  
+
+  <div class="max-w-md">
+    <div class="text-5xl font-bold my-4">{{ section.settings.title }}</div>
+    <div class="my-4"><p class="text-base md:text-xl leading-normal">{{ section.settings.subtext_title }}</p></div>
+    <div class="my-4">
+  
+        <a href="" class="px-4 inline py-2 text-base font-medium shadow bg-green-600 hover:bg-green-800 text-white"></a>
+    </div>
+    
+</div>
+
+{% schema %}
+    {
+        "name": "template-404",
+        "tag": "section",
+        "class": "flex items-center justify-center text-center py-7 h-screen ",
+        "settings": [
+     {
+        "type": "text",
+        "id": "title",
+        "label": "title",
+        "default": "title"
+     },
+     {
+        "type": "text",
+        "id": "subtext",
+        "label": "404 subtext title",
+        "default": "The page you were looking for does not exist",
+     },
+     {
+         "type": "text",
+         "id": "button_label",
+         "label": "Back to homepage",
+         "default": "button text",
+     },
+     {
+          "type": "url",
+          "id": "button_url",
+          "label": "button_url"
+     }
+     
+    ],
+    }
+{% endschema %}
