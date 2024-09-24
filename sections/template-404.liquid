@@ -1,17 +1,24 @@
-  {% comment %} Use this section setting when you have to give title from theme customizer       <h1>{{ section.settings.title }}</h1>  {% endcomment %} 
+  {% comment %} Use this section setting when you have to give title from theme customizer <h1>{{ section.settings.title }}</h1>  {% endcomment %} 
   {% comment %} Use this when we have to fetch the title from en.default.json  {{ 'general.404.title' | t }}{% endcomment %}  
-  {% comment %} Use this section setting when you have to give subtext from theme customizer  <p> {{ section.settings.subtext }}</p>{% endcomment %} 
+  {% comment %} Use this section setting when you have to give subtext from theme customizer  <p> {{ section.settings.subtext }} </p> {% endcomment %} 
   {% comment %} Use this when we have to fetch the title from en.default.json  {{ 'general.404.subtext_html' | t }}{% endcomment %}  
+  {% comment %} shop.secure_url is secure link of your shopify store {% assign shop_url = shop.secure_url %} {% endcomment %}
+          
 
   <div class="max-w-md">
     <div class="text-5xl font-bold my-4">{{ section.settings.title }}</div>
     <div class="my-4"><p class="text-base md:text-xl leading-normal">{{ section.settings.subtext_title }}</p></div>
     <div class="my-4">
-  
-        <a href="" class="px-4 inline py-2 text-base font-medium shadow bg-green-600 hover:bg-green-800 text-white"></a>
+        {% if section.settings.button_url == blank %}
+            {% assign shop_url = shop.secure_url %}
+        {% else %}
+            {% assign shop_url = section.settings.button_url %}
+        {% endif %}
+        <a href="{{ shop_url }}" class="px-4 inline py-2 text-base font-medium shadow bg-green-600 hover:bg-green-800 text-white">{{ section.settings.button_label }}</a>
     </div>
     
 </div>
+
 
 {% schema %}
     {
@@ -42,7 +49,7 @@
           "id": "button_url",
           "label": "button_url"
      }
-     
+
     ],
     }
 {% endschema %}

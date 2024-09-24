@@ -11,6 +11,7 @@
 
 // }
 
+//  mendatory is Name, Sections, order...layout and wrapper are optional
 
 {
     "name": "Tempalte 404",
