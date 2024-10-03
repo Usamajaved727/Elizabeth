@@ -41,9 +41,52 @@
                     </div>
                 </div> 
             {% else %}
-        {% endcase %}
+        {% endcase %} 
     {% endfor %}
 </article>
+
+
+{% if blog.comments_enabled? %}
+    <div id="comments" class="my-8">
+        {% if article.comments_count > 0 %}
+            {% paginate article.comments by 12 %}
+                {% for comment in article.comments %}
+                    <span>{{ comment.author }}</span> <span>{{ comment.created_at | date: formart: 'default' }}</span>
+                    <p>{{ comment.content }}</p>
+                {% endfor %}
+            {% endpaginate %}
+            {% else %}
+                there are not commments in this article
+        {% endif %}
+    </div>
+
+    <div id="comment-form" class="mb-8">
+    {% form 'new_comment', article %}
+        <label for="comment_author">Name</label>
+
+        <input type="text"
+         name="comment[author]" 
+         placeholder="Jane Doe" 
+         id="comment_author"
+         required >
+
+         <label for="comment_email">Email</label>
+
+         <input type="email"
+            name="comment[email]" 
+            placeholder="JaneDoe@gamil.com" 
+            id="comment_email"
+            required >
+
+        <label for="comment_content">Massage</label>
+        <textarea id="comment_content" name="comment[body]" required></textarea>
+
+        <input type="submit" value="Post comment" >
+    {% endform %}
+    </div>
+
+{% endif %}
+
 
 
 
