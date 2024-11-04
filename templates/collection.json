@@ -1,0 +1,8 @@
+{
+    "sections": {
+        "tempalte": {
+            "type": "template-collection"
+        }
+    },
+    "order": ["tempalte"]
+}
